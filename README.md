@@ -46,10 +46,8 @@ res.standardProcessing(modelCall);
 To return a specific status code, use the AdapterResult class, passing in the status code and object to return.
 
 ```js
-router.get('/', function(req, res){
-  var modelCall = new Promise(function(resolve, reject){
-      return resolve(new AdapterResult(202, { data: "some data" }));
-  });
-  res.standardProcessing(modelCall);
+var modelCall = new Promise(function(resolve, reject){
+    return resolve(new AdapterResult(202, { data: "some data" }));
 });
+res.standardProcessing(modelCall);
 ```
