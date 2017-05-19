@@ -31,17 +31,39 @@ http.ServerResponse.prototype.failure = function(message, code){
     return this;
 }
 
-http.ServerResponse.prototype.standardProcessing = function(promise) {
+http.ServerResponse.prototype.standardProcessing = function(func) {
     var self = this;
-    promise.then(function(result){
-        return self.success(result);
-    }, function(error){
-        return self.failure(error);
-    });
+
+    if(func instanceof Promise){
+
+        promise.then(function(result){
+            return self.success(result);
+        }, function(error){
+            return self.failure(error);
+        });
+
+    }
+    else if (func instanceof Function) {
+        try {
+            return self.success(func());
+        }
+        catch (e) {
+            return self.failure(e);
+        }
+    }
+    else {
+        return self.success(func);
+    }
+
 };
+
+function globalHandler(err, req, res, next){
+    res.failure(err);
+}
 
 var AdapterResult = require('./adapter-result');
 
 module.exports = {
-    AdapterResult
+    AdapterResult,
+    globalHandler
 }
