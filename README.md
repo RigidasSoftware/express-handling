@@ -23,7 +23,7 @@ When a promise resolves, it is treated as success with a default code of 200.
 When a promise rejects, it is treated as a failure with a default code of 400.
 
 
-**Simple data**
+### Simple data
 If simple data is returned from the promise, it will be returned with the default status code
 ```js
 var modelCall = new Promise(function(resolve, reject){
@@ -42,7 +42,7 @@ res.standardProcessing(modelCall);
 ```
 
 
-**Changing the status**
+### Changing the status
 To return a specific status code, use the AdapterResult class, passing in the status code and object to return.
 
 ```js
@@ -52,3 +52,4 @@ router.get('/', function(req, res){
   });
   res.standardProcessing(modelCall);
 });
+```
