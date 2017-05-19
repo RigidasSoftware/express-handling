@@ -36,7 +36,7 @@ http.ServerResponse.prototype.standardProcessing = function(func) {
 
     if(func instanceof Promise){
 
-        promise.then(function(result){
+        func.then(function(result){
             return self.success(result);
         }, function(error){
             return self.failure(error);
