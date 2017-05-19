@@ -1,6 +1,6 @@
 {
   "name": "express-handling",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Handle router methods into a standard api response",
   "main": "index.js",
   "scripts": {
@@ -11,8 +11,8 @@
   "dependencies": {
     "http": "0.0.0"
   },
-  "repository" : { 
-    "type" : "git", 
-    "url" : "https://github.com/RigidasSoftware/express-handling"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RigidasSoftware/express-handling"
   }
 }
